@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 .HomeTitle {
   margin: 0;
   line-height: 1.15;
@@ -96,8 +100,39 @@
   align-items: center;
 }
 
+.categoryNews {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryNews div {
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  background-color: #0070f3;
+  margin-right: 20px;
+  padding-top: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.categoryNews div:hover {
+  background-color: #377ccc;
+}
+
 @media screen and (max-width: 768px) {
   .post {
     width: 350px;
+  }
+
+  .categoryNews {
+    flex-direction: column;
+  }
+  .categoryNews div {
+    margin-left: 12px;
+    margin-bottom: 20px;
   }
 }

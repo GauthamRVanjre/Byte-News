@@ -4,9 +4,33 @@ import "./Home.css";
 const InputArea = ({ onSearch }) => {
   const [inputText, setInputText] = useState("");
 
+  const categories = [
+    {
+      id: 1,
+      name: "Sports",
+    },
+    {
+      id: 2,
+      name: "Business",
+    },
+    {
+      id: 3,
+      name: "Technology",
+    },
+    {
+      id: 4,
+      name: "Entertainment",
+    },
+  ];
+
   function handleInputText(e) {
     const newValue = e.target.value;
     setInputText(newValue);
+  }
+
+  function handleCategoryNewsClick(name) {
+    setInputText(name);
+    console.log(inputText);
   }
 
   return (
@@ -15,7 +39,7 @@ const InputArea = ({ onSearch }) => {
         <input
           onChange={handleInputText}
           value={inputText}
-          placeholder="Bitcoin"
+          placeholder="Enter a keyword like 'Bitcoin'"
           type="text"
         />
         <button
@@ -27,6 +51,18 @@ const InputArea = ({ onSearch }) => {
         >
           Search
         </button>
+      </div>
+
+      <div className="categoryNews">
+        {categories.map((category) => (
+          <div
+            onClick={() => handleCategoryNewsClick(category.name)}
+            key={category.id}
+            value={category.name}
+          >
+            {category.name}
+          </div>
+        ))}
       </div>
     </>
   );

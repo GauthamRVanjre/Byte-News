@@ -7,14 +7,40 @@ const TopHeadlines = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [categoryNews, setCategoryNews] = useState("Sports");
   console.log(articles);
+
+  // categories news for India
+  const categories = [
+    {
+      id: 1,
+      name: "Sports",
+    },
+    {
+      id: 2,
+      name: "Business",
+    },
+    {
+      id: 3,
+      name: "Technology",
+    },
+    {
+      id: 4,
+      name: "Entertainment",
+    },
+  ];
+
+  function handleCategoryNewsClick(name) {
+    setCategoryNews(name);
+    console.log(categoryNews);
+  }
 
   // Fetching top 10 trending news articles by using pageSize
   // updating the results into articles state
   useEffect(() => {
     const abortController = new AbortController();
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&pageSize=10&page=1`,
+      `https://newsapi.org/v2/top-headlines?country=in&category=${categoryNews}&pageSize=10&page=1`,
       {
         headers: {
           Authorization: `Bearer ${API_KEY}`,
@@ -36,7 +62,7 @@ const TopHeadlines = () => {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [categoryNews]);
 
   if (error) {
     return <>{error.message}</>;
@@ -49,6 +75,19 @@ const TopHeadlines = () => {
   } else {
     return (
       <>
+        <h2>Trending {categoryNews} news in India</h2>
+        <div className="categoryNews">
+          {categories.map((category) => (
+            <div
+              onClick={() => handleCategoryNewsClick(category.name)}
+              key={category.id}
+              value={category.name}
+            >
+              {category.name}
+            </div>
+          ))}
+        </div>
+
         <div className="TopHeadlinesMain">
           {articles.map((article, index) => (
             <div key={index} className="TopHeadlinesPost">

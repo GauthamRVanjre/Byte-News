@@ -1,3 +1,10 @@
+h2 {
+  margin-top: 40px;
+}
+.categoryNews {
+  margin-top: 50px;
+}
+
 .TopHeadlinesMain {
   display: flex;
   margin-top: 50px;
