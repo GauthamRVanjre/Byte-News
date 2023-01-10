@@ -3,6 +3,8 @@ import "./Home.css";
 import InputArea from "./InputArea";
 import { API_KEY } from "../../contants";
 import loading_img from "../../images/loading_img.jpg";
+import ArticleCard from "../ArticleCard/ArticleCard";
+import Intro from "./Intro";
 
 const Home = () => {
   const [searchQueryNews, setSearchQueryNews] = useState("bitcoin");
@@ -45,9 +47,11 @@ const Home = () => {
   }, [searchQueryNews]);
 
   if (error) {
+    // if Api call is unsuccessful
     return <>{error.message}</>;
   } else if (!isLoaded) {
     return (
+      // Loading state
       <div className="loadingDiv">
         <img src={loading_img} alt="loading_img" />
       </div>
@@ -55,29 +59,10 @@ const Home = () => {
   } else {
     return (
       <>
-        <div className="HomeMain">
-          <h1 className="HomeTitle">
-            <span>Byte</span> News
-          </h1>
-          <p className="HomeDescription">
-            Your one stop for latest news article
-          </p>
-        </div>
+        <Intro />
         <InputArea onSearch={SearchNews} />
 
-        <div className="articlesNews">
-          {newsArticles.map((article, index) => (
-            <div key={index} className="post">
-              <h1 onClick={() => (window.location.href = article.url)}>
-                {article.title}
-              </h1>
-              <p>{article.description}</p>
-              {!!article.urlToImage && (
-                <img src={article.urlToImage} alt="article-img" />
-              )}
-            </div>
-          ))}
-        </div>
+        <ArticleCard articles={newsArticles} />
       </>
     );
   }

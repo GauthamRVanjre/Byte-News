@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./TopHeadlines.css";
 import { API_KEY } from "../../contants";
 import loading_img from "../../images/loading_img.jpg";
+import ArticleCard from "../ArticleCard/ArticleCard";
+import Intro from "../Home/Intro";
 
 const TopHeadlines = () => {
   const [articles, setArticles] = useState([]);
@@ -30,6 +32,7 @@ const TopHeadlines = () => {
     },
   ];
 
+  // updating the category state for the click user in the category object
   function handleCategoryNewsClick(name) {
     setCategoryNews(name);
     console.log(categoryNews);
@@ -75,7 +78,10 @@ const TopHeadlines = () => {
   } else {
     return (
       <>
+        <Intro />
         <h2>Trending {categoryNews} news in India</h2>
+
+        {/* printing categories and let user to select */}
         <div className="categoryNews">
           {categories.map((category) => (
             <div
@@ -88,19 +94,8 @@ const TopHeadlines = () => {
           ))}
         </div>
 
-        <div className="TopHeadlinesMain">
-          {articles.map((article, index) => (
-            <div key={index} className="TopHeadlinesPost">
-              <h1 onClick={() => (window.location.href = article.url)}>
-                {article.title}
-              </h1>
-              <p>{article.description}</p>
-              {!!article.urlToImage && (
-                <img src={article.urlToImage} alt="article-img" />
-              )}
-            </div>
-          ))}
-        </div>
+        {/* orinting articles */}
+        <ArticleCard articles={articles} />
       </>
     );
   }

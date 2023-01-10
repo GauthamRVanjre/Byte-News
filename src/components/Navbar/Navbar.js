@@ -14,7 +14,7 @@ const Navbar = () => {
             <div>Home</div>
           </Link>
           <Link to="/top-headlines">
-            <div>Top Headlines</div>
+            <div>Top National Headlines</div>
           </Link>
         </div>
       </div>

@@ -53,6 +53,7 @@ const InputArea = ({ onSearch }) => {
         </button>
       </div>
 
+      {/* printing categories and let user to select */}
       <div className="categoryNews">
         {categories.map((category) => (
           <div
