@@ -1,0 +1,39 @@
+.TopHeadlinesMain {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.TopHeadlinesPost {
+  width: 500px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #000;
+}
+
+.TopHeadlinesPost img {
+  width: 100%;
+}
+
+.TopHeadlinesPost h1 {
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.TopHeadlinesPost h1:hover {
+  opacity: 0.5;
+}
+
+.TopHeadlinesPost p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .TopHeadlinesPost {
+    width: 350px;
+  }
+}

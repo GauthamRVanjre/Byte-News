@@ -1,0 +1,34 @@
+.NavMain {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavLogo {
+  margin: 25px;
+  font-size: 18px;
+}
+
+.NavLogo span {
+  color: #0070f3;
+}
+
+.Navlinks {
+  display: flex;
+}
+
+.Navlinks div {
+  margin: 25px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.Navlinks a {
+  text-decoration: none;
+  color: #000;
+}
+
+.Navlinks div:hover {
+  color: rgb(168, 168, 168);
+}

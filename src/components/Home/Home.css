@@ -1,0 +1,103 @@
+.HomeMain {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeTitle {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.HomeTitle span {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.HomeDescription {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.HomeTitle .HomeDescription {
+  text-align: center;
+}
+
+.inputField {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputField input {
+  width: 30%;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.submitBtn {
+  cursor: pointer;
+  background-color: #0070f3;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  margin-left: -10px;
+}
+
+.submitBtn:hover {
+  background-color: #377ccc;
+}
+
+.articlesNews {
+  margin-top: 30px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post {
+  width: 500px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #000;
+}
+
+.post img {
+  width: 100%;
+}
+
+.post h1 {
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post h1:hover {
+  opacity: 0.5;
+}
+
+.post p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.loadingDiv {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .post {
+    width: 350px;
+  }
+}
